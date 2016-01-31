@@ -397,6 +397,7 @@ class JaversRepositoryE2ETest extends Specification {
         def history = javers.findChanges(byInstanceId("John", DummyUser).build())
 
         then:
+        println history[0]
         with(history[0]) {
             it instanceof ValueChange
             affectedGlobalId == instanceId("John", DummyUser)
