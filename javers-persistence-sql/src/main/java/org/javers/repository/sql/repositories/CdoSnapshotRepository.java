@@ -21,9 +21,11 @@ public class CdoSnapshotRepository {
     }
 
     public void save(long commitIdPk, List<CdoSnapshot> cdoSnapshots) {
+        System.out.println("saving snapshots to:" +commitIdPk);
         //TODO add batch insert
         for (CdoSnapshot cdoSnapshot : cdoSnapshots) {
             long globalIdPk = globalIdRepository.getOrInsertId(cdoSnapshot.getGlobalId());
+            System.out.println(".. cdoSnapshot :" +globalIdPk+" "+ cdoSnapshot);
             insertSnapshot(globalIdPk, commitIdPk, cdoSnapshot);
         }
     }
@@ -38,7 +40,9 @@ public class CdoSnapshotRepository {
                 .value(SNAPSHOT_CHANGED, jsonConverter.toJson(cdoSnapshot.getChanged() ))
                 .sequence(SNAPSHOT_PK, SNAPSHOT_TABLE_PK_SEQ);
 
-        return javersPolyJDBC.queryRunner().insert(query);
+        long pk = javersPolyJDBC.queryRunner().insert(query);
+        System.out.println(".. inserted snapshot pk: "+pk);
+        return pk;
     }
 
     public void setJsonConverter(JsonConverter jsonConverter) {

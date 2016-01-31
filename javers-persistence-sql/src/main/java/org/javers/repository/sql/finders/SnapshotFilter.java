@@ -21,6 +21,7 @@ abstract class SnapshotFilter {
 
     static final String BASE_FIELDS =
             SNAPSHOT_STATE + ", " +
+            "snapshot_pk" + ", " +
             SNAPSHOT_TYPE + ", " +
             SNAPSHOT_VERSION + ", " +
             SNAPSHOT_CHANGED + ", " +

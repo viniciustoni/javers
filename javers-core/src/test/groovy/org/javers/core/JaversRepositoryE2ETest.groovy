@@ -394,6 +394,7 @@ class JaversRepositoryE2ETest extends Specification {
         when:
         user.age = 19
         javers.commit("login", user)
+        println 'querying ...'
         def history = javers.findChanges(byInstanceId("John", DummyUser).build())
 
         then:
