@@ -9,7 +9,7 @@ dependencies {
     testCompile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
 
     testCompile 'commons-dbcp:commons-dbcp:1.4'
-    testCompile 'com.h2database:h2:1.4.187'
+    testCompile 'com.h2database:h2:1.4.191'
     testCompile 'org.postgresql:postgresql:9.4-1201-jdbc41'
     testCompile 'mysql:mysql-connector-java:5.1.36'
     testCompile 'com.google.guava:guava:18.0'
