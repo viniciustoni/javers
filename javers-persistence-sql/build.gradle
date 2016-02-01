@@ -1,6 +1,12 @@
+repositories {
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+}
+
 dependencies {
     compile project(':javers-core')
-    compile 'org.polyjdbc:polyjdbc:0.6.0'
+    compile 'org.polyjdbc:polyjdbc:0.6.1-16_key_generator_per_instances-SNAPSHOT'
     compile 'com.google.guava:guava:18.0'
 
     testCompile project(path: ":javers-core", configuration: "testArtifacts")

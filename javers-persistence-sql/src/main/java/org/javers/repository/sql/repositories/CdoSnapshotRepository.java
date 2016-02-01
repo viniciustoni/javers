@@ -40,9 +40,7 @@ public class CdoSnapshotRepository {
                 .value(SNAPSHOT_CHANGED, jsonConverter.toJson(cdoSnapshot.getChanged() ))
                 .sequence(SNAPSHOT_PK, SNAPSHOT_TABLE_PK_SEQ);
 
-        long pk = javersPolyJDBC.queryRunner().insert(query);
-        System.out.println(".. inserted snapshot pk: "+pk);
-        return pk;
+        return javersPolyJDBC.queryRunner().insert(query);
     }
 
     public void setJsonConverter(JsonConverter jsonConverter) {

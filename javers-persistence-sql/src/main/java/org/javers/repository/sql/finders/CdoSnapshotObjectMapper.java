@@ -36,11 +36,9 @@ class CdoSnapshotObjectMapper implements ObjectMapper<CdoSnapshot> {
 
     @Override
     public CdoSnapshot createObject(ResultSet resultSet) throws SQLException {
-        System.out.println("fetching snapshots ...");
         JsonObject json = new JsonObject();
 
         json.add(COMMIT_METADATA, assembleCommitMetadata(resultSet));
-        System.out.println(".. snapshot pk: "+ resultSet.getLong("snapshot_pk"));
         json.add(STATE_NAME, jsonConverter.fromJsonToJsonElement(resultSet.getString(SNAPSHOT_STATE)));
         json.add(CHANGED_NAME, assembleChangedPropNames(resultSet));
         json.addProperty(TYPE_NAME, resultSet.getString(SNAPSHOT_TYPE));
