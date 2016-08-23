@@ -204,6 +204,8 @@ public class ReflectionUtil {
             return Object[].class;
         }  else if (javaType instanceof Class) {
             return (Class)javaType;
+        }  else if (javaType instanceof TypeVariable) {
+            return (Class) ((TypeVariable) javaType).getGenericDeclaration();
         }
 
         throw new JaversException(JaversExceptionCode.CLASS_EXTRACTION_ERROR, javaType);
